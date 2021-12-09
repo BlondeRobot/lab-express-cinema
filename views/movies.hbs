@@ -1,8 +1,10 @@
 <h1>Movies</h1>
 <div id="movies-container">
     {{#each returnedMovies}}
+    <div class="movie-card">
         <img src="{{image}}" alt="movie poster" />
         <h3>{{title}}</h3>
         <a href="/movies/{{this.id}}">See more</a>
+    </div>
     {{/each}}
 </div>

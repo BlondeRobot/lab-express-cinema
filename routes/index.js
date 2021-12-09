@@ -15,7 +15,16 @@ router.get("/movies", (req, res, next) => {
     })
     .catch((error) => console.log("Error while finding movies occurred"));
 });
+/* GET details page */
+
+router.get("/movies/:id", (req, res, next) => {
+    Movie.findById(req.params.id)
+      .then((movieDetails) => {
+        res.render("details", { movieDetails });
+        console.log(movieDetails);
+      })
+      .catch((error) => console.log("Error while finding movie details occurred"));
+});
 
 module.exports = router;
 
-/* GET details page */
