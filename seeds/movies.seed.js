@@ -104,10 +104,11 @@ mongoose
   useCreateIndex: true,
 })
 .then(() => {
-  console.log('Connected to Mongodb')
+  console.log('Connected to Mongodb');
+  return Movie.deleteMany();
 })
 .then(() => {
-  Movie.insertMany(movies)
+  return Movie.insertMany(movies)
 })
 .then((createdMovies)=> {
   console.log(`Created ${createdMovies.length} movies`);
